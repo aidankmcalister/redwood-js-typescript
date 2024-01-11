@@ -7,6 +7,7 @@ import {
   TextField,
   TextAreaField,
   Submit,
+  SubmitHandler,
 } from '@redwoodjs/forms'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
@@ -50,7 +51,7 @@ const CommentForm = ({ postId }: Props) => {
 
   return (
     <div className={hasPosted ? 'hidden' : ''}>
-      <h3 className="font-light text-lg text-gray-600">Leave a Comment</h3>
+      <h3 className="text-lg font-light text-gray-600">Leave a Comment</h3>
       <Form className="mt-4 w-full" onSubmit={onSubmit}>
         <FormError
           error={error}
@@ -59,31 +60,31 @@ const CommentForm = ({ postId }: Props) => {
         />
         <Label
           name="name"
-          className="block text-xs font-semibold text-gray-500 uppercase"
+          className="block text-xs font-semibold uppercase text-gray-500"
         >
           Name
         </Label>
         <TextField
           name="name"
-          className="block w-full p-1 border rounded text-sm "
+          className="block w-full rounded border p-1 text-sm "
           validation={{ required: true }}
         />
 
         <Label
           name="body"
-          className="block mt-4 text-xs font-semibold text-gray-500 uppercase"
+          className="mt-4 block text-xs font-semibold uppercase text-gray-500"
         >
           Comment
         </Label>
         <TextAreaField
           name="body"
-          className="block w-full p-1 border rounded h-24 text-sm"
+          className="block h-24 w-full rounded border p-1 text-sm"
           validation={{ required: true }}
         />
 
         <Submit
           disabled={loading}
-          className="block mt-4 bg-blue-500 text-white text-xs font-semibold uppercase tracking-wide rounded px-3 py-2 disabled:opacity-50"
+          className="mt-4 block rounded bg-blue-500 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-white disabled:opacity-50"
         >
           Submit
         </Submit>
